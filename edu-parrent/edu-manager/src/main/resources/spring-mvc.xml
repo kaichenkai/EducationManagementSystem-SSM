@@ -15,7 +15,12 @@
         http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <!-- 配置注解方式 -->
-    <context:component-scan base-package="com.company" /><!-- 开启包扫描，对指定的包进行注解扫描 -->
+<!--    <context:component-scan base-package="com.company" />&lt;!&ndash; 开启包扫描，对指定的包进行注解扫描 &ndash;&gt;-->
+    <context:component-scan base-package="com.company.controller" /><!-- 开启包扫描，对控制器所在的包进行注解扫描 -->
+
+    <!-- 2.配置映射处理和适配器-->
+    <!--    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>-->
+    <!--    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>-->
 
     <!-- 配置资源视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @author kaichenkai
@@ -17,15 +18,26 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
-    @RequestMapping(value = "login", method = RequestMethod.GET)
-    public void login(){
-        System.out.println("login");
-    }
-
     @RequestMapping(value = "find", method = RequestMethod.GET)
-    public User findById(Integer id){
+    public User findById(Integer id) {
         User user = userService.findById(id);
         System.out.println(user);
         return user;
+    }
+
+    @RequestMapping("login")
+    public ModelAndView login() {
+        return new ModelAndView("Default");
+    }
+
+
+    @RequestMapping("manage")
+    public ModelAndView manage() {
+        return new ModelAndView("User/UserInfo");
+    }
+
+    @RequestMapping("info")
+    public ModelAndView info() {
+        return new ModelAndView("User/UserInfo");
     }
 }
